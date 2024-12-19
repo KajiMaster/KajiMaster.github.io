@@ -1,0 +1,38 @@
+[
+    {
+        "id": "testimonial1",
+        "name": "Student 1",
+        "image": "images/student1.jpg",
+        "videoPreview": "images/student1.jpg",
+        "videoUrl": "https://www.youtube.com/embed/lQP_aT7mdbQ",
+        "snippet": "Gloria's classes are so engaging, and my confidence in speaking English has grown tremendously...",
+        "details": "Gloria's classes are so engaging, and my confidence in speaking English has grown tremendously. I never thought learning a language could be so enjoyable and effective. Her teaching style is practical!"
+    },
+    {
+        "id": "testimonial2",
+        "name": "Joe",
+        "image": "images/student3.jpg",
+        "videoPreview": "images/student3.jpg",
+        "videoUrl": "https://www.youtube.com/embed/nMmJYvIld34",
+        "snippet": "Gloria was so ciritical to my growth and support for...",
+        "details": "Gloria was so ciritical to my growth and support for over the years of helping me grow my busines and improving everything in my life I would take a bullet for her because she is so aweosome."
+    },
+    {
+        "id": "testimonial3",
+        "name": "Student 3",
+        "image": "images/student3.jpg",
+        "videoPreview": "images/student3.jpg",
+        "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        "snippet": "Thanks to Gloria, I achieved fluency in record time. Her one-on-one coaching...",
+        "details": "Thanks to Gloria, I achieved fluency in record time. Her one-on-one coaching and interactive methods made all the difference. I highly recommend her to anyone serious about learning English!"
+    },
+    {
+        "id": "testimonial4",
+        "name": "Student 4",
+        "image": "images/student1.jpg",
+        "videoPreview": "images/student1.jpg",
+        "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        "snippet": "Thanks to Gloria, I achieved fluency in record time. Her one-on-one coaching...",
+        "details": "Thanks to Gloria, I achieved fluency in record time. Her one-on-one coaching and interactive methods made all the difference. I highly recommend her to anyone serious about learning English!"
+    }
+]

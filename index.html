@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gloria Gonzalez English Teacher</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<!-- Fixed Blue Bar at the Top -->
+<div class="blue-bar">
+    <!-- Hamburger Menu on the Far Left -->
+    <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <!-- Slogan in the Center -->
+    <div id="fadingText" class="fading-text">Extend your voice... enrich our world!</div>
+
+    <!-- CTA Button on the Far Right -->
+    <a href="contact.html" class="cta-button">RESERVA UNA LLAMADA GRATIS AHORA</a>
+</div>
+
+<!-- Dropdown Navigation for the Hamburger -->
+<ul class="nav-dropdown" id="navDropdown">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+</ul>
+
+
+    <!-- Full-Screen Video Section -->
+    <header>
+        <div class="fullscreen-video-container">
+            <video class="fullscreen-video" autoplay loop muted>
+                <source src="images/1-Logo-LIVELY.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </header>
+
+<section class="testimonials">
+    <h2>What Our Students Say</h2>
+    <div class="testimonial-slider">
+        <button class="slider-arrow left-arrow">&#10094;</button> <!-- Left Arrow -->
+        <div class="testimonial-container" id="testimonialContainer">
+            <!-- Testimonials will be dynamically injected here -->
+        </div>
+        <button class="slider-arrow right-arrow">&#10095;</button> <!-- Right Arrow -->
+    </div>
+</section>
+
+<!-- Video Modal -->
+<div id="videoModal" class="modal hidden">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
+
+    <!-- Main Content -->
+    <main>
+        <article class="left_article">
+            <h2>¡Reserva una llamada de descubrimiento gratuita!</h2>
+            <img src="images/heart.gif" alt="Heart Icon">
+            <p>Welcome to the world of English language learning with Gloria Gonzalez, your dedicated and experienced instructor...</p>
+            <a href="contact.html">
+                <button type="button">Book a Private Lesson Now!</button>
+            </a>
+        </article>
+
+        <aside class="right_article">
+            <img src="images/homeLogo.jpg" alt="Logo">
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="blue-footer">
+        <div class="footer-content">
+            <strong>2024-2025 World Idiomas LLC. All rights reserved.</strong>
+        </div>
+    </footer>
+
+    <!-- Link to External JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
