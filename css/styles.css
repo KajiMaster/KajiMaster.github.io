@@ -426,19 +426,20 @@ main {
 ==================== */
 @media (max-width: 768px) {
     .testimonial-container {
-        display: flex;
-        flex-direction: row;
-        gap: 0.5em; /* Maintain gap between cards */
-        justify-content: flex-start;
-        overflow-x: auto; /* Ensure horizontal scroll */
-        scroll-snap-type: x mandatory; /* Enable snapping */
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling for mobile */
+        overflow-x: auto; /* Enable horizontal scroll */
+        overflow-y: visible; /* Ensure shadows are visible */
+        padding-bottom: 1rem; /* Add space below for visible shadows */
+        scroll-snap-type: x mandatory; /* Enable snap-to-testimonial */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling */
+        position: relative;
     }
 
     .testimonial {
-        flex: 0 0 100%; /* Ensure each card takes full width on mobile */
-        max-width: 100%; /* Prevent overflow */
-        scroll-snap-align: center; /* Snap cards to the center */
+        flex: 0 0 90%; /* Ensure cards fit within the viewport */
+        max-width: 90%;
+        margin: 0 auto; /* Center testimonials horizontally */
+        scroll-snap-align: center; /* Snap to center */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ensure shadow is intact */
     }
 
     #fadingText {
