@@ -72,7 +72,6 @@ body {
     margin: 0; /* Ensure no extra space */
 }
 
-
 /* ====================
    Blue Footer Bar
 ==================== */
@@ -94,335 +93,66 @@ body {
 }
 
 /* ====================
-   Hamburger Menu
+   Testimonials Section (Desktop)
 ==================== */
-.hamburger {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-}
+@media (min-width: 768px) {
+    .testimonial-container {
+        display: flex;
+        gap: 1.5em; /* Spacing between cards */
+        justify-content: flex-start;
+        overflow: hidden; /* Prevent overflow */
+        padding: 2em; /* Add padding for spacing */
+    }
 
-.hamburger div {
-    background-color: white;
-    height: 3px;
-    width: 25px;
-    margin: 3px 0;
-    transition: transform 0.3s ease-in-out;
-}
+    .testimonial {
+        flex: 0 0 30%; /* Each card takes 30% of the container width */
+        max-width: 30%; /* Prevent overflow */
+        background-color: #E5BA21;
+        border-radius: 12px;
+        text-align: center;
+        padding: 1em;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-.nav-dropdown {
-    display: none;
-    position: fixed;
-    top: 4.5em;
-    left: 0;
-    width: 100%;
-    background-color: #0078D7;
-    text-align: center;
-    z-index: 9999;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-}
+    .testimonial:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+    }
 
-.nav-dropdown li {
-    list-style: none;
-    padding: 1em;
-}
+    .testimonial.open {
+        transform: scale(1.1); /* Slightly larger for open state */
+        box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.4); /* More pronounced shadow */
+    }
 
-.nav-dropdown a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-    display: block;
-    transition: color 0.3s ease-in-out;
-}
+    .slider-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        font-size: 2rem;
+        padding: 0.5em;
+        cursor: pointer;
+        z-index: 10;
+    }
 
-.nav-dropdown a:hover {
-    color: #C0E0FF;
-}
+    .slider-arrow:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
 
-.nav-dropdown.show {
-    display: block;
+    .left-arrow {
+        left: 0.5em;
+    }
+
+    .right-arrow {
+        right: 0.5em;
+    }
 }
 
 /* ====================
-   Full-Screen Video
-==================== */
-.fullscreen-video-container {
-    position: relative;
-    width: 100%;
-    height: calc(100vh - 100px); /* Reduce by 20px from top and 20px from bottom */
-    margin-top: 4.5em;
-    overflow: hidden;
-}
-
-.fullscreen-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* ====================
-   Main Content
-==================== */
-main {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 2em auto;
-    width: 90%;
-}
-
-.left_article, .right_article {
-    flex: 1;
-    padding: 2em;
-}
-
-.left_article {
-    background-color: #EFD67D;
-    border-bottom-left-radius: 80px;
-    text-align: center;
-}
-
-.left_article img {
-    width: 10%;
-    margin: 1em 0;
-}
-
-.left_article button {
-    background-color: #E7562F;
-    color: white;
-    border: none;
-    padding: 0.5em 1.5em;
-    cursor: pointer;
-    font-size: 1.2em;
-    margin-top: 1em;
-    border-radius: 8px;
-}
-
-.left_article button:hover {
-    background-color: #C74325;
-}
-
-.right_article img {
-    width: 100%;
-    border-bottom-right-radius: 80px;
-}
-
-/* ====================
-   Testimonials Section
-==================== */
-
-.default-photo.hidden {
-    display: none;
-}
-
-
-
-.testimonials {
-    width: 90%;
-    margin: 4em auto;
-    text-align: center;
-}
-
-.testimonials h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5em;
-}
-
-.testimonial-details {
-    display: block;
-    text-align: center;
-}
-
-.testimonial-slider {
-    position: relative;
-    overflow: visible;
-    max-width: 100%;
-}
-
-.testimonial-snippet.hidden {
-    display: none;
-}
-
-
-.testimonial-container {
-    display: flex;
-    gap: 1.5em; /* Spacing between cards */
-    justify-content: flex-start;
-    align-items: flex-start;
-    overflow: hidden; /* Prevent white-space or overflow */
-    position: relative; /* Ensure proper alignment */
-}
-
-.testimonial {
-    flex: 0 0 auto; /* Ensure testimonials align horizontally */
-    width: 100%; /* Default width, adjusted in JS for desktop/mobile */
-    max-width: 100%; /* Prevent overflow */
-    background-color: #E5BA21;
-    border-radius: 12px;
-    text-align: center;
-    padding: 1em;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
-}
-
-
-.testimonial.open {
-    flex: 0 0 auto;
-}
-
-.testimonial-photo,
-.video-thumbnail img {
-    width: 100px; /* Consistent width */
-    height: 100px; /* Consistent height */
-    border-radius: 50%; /* Ensures circular shape */
-    object-fit: cover; /* Prevents distortion */
-    margin: 0 auto; /* Centers the image */
-    display: block;
-    border: 3px solid #28A745; /* Optional border */
-}
-
-.testimonial:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
-}
-
-.read-more {
-    color: #0078D7;
-    cursor: pointer;
-    text-decoration: underline;
-}
-
-.testimonial-details h3 {
-    margin-top: 1em; /* Space below the videoPreview */
-    font-size: 1.5rem; /* Adjust size as needed */
-    text-align: center;
-}
-
-.testimonial-details.hidden {
-    display: none;
-}
-
-/* Video Thumbnail */
-.video-thumbnail {
-    margin: 0 auto; /* Center the video preview */
-    display: block;
-    width: 150px; /* Adjust size for consistency */
-    height: 150px; /* Ensure a square thumbnail */
-    border-radius: 50%;
-    position: relative;
-    cursor: pointer;
-}
-
-.video-thumbnail img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.play-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2rem;
-    color: white;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Example of ensuring parent containers allow overflow */
-.parent-container {
-    overflow: visible;
-}
-
-
-/* ====================
-   Video Modal
-==================== */
-.video-modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Dim background */
-    z-index: 9999;
-}
-
-.video-modal iframe {
-    width: 90vw; /* 90% of viewport width */
-    height: 50vh; /* 50% of viewport height */
-    max-width: 800px; /* Limit the maximum size */
-    max-height: 450px; /* Limit the maximum height */
-}
-
-.modal-content {
-    position: relative;
-    width: 80%; /* Use 80% of viewport width */
-    max-width: 900px; /* Limit maximum width */
-    aspect-ratio: 16 / 9; /* Maintain 16:9 ratio for video */
-    background-color: black; /* Matches video background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Prevent content overflow */
-}
-
-.modal-content iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block; /* Ensure no inline spacing */
-}
-
-.close-modal {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 2rem;
-    color: white;
-    cursor: pointer;
-}
-
-/* ====================
-   Arrows for Slider
-==================== */
-.slider-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    font-size: 2rem;
-    padding: 0.5em;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.slider-arrow:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.left-arrow {
-    left: 0.5em;
-}
-
-.right-arrow {
-    right: 0.5em;
-}
-
-/* ====================
-   Responsive Behavior
+   Testimonials Section (Mobile)
 ==================== */
 @media (max-width: 768px) {
     .testimonial-container {
@@ -456,32 +186,23 @@ main {
         transform: scale(1.05); /* Slight hover effect */
         box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4); /* Shadow on hover */
     }
-    
+
     .testimonial.open:hover {
         transform: scale(1.15); /* Slightly larger for open state */
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); /* Larger shadow for open hover */
     }
 
+    .left-arrow,
+    .right-arrow {
+        display: none; /* Hide arrows on mobile */
+    }
+
     #fadingText {
         font-size: 1.5rem; /* Slightly smaller size for mobile */
     }
-    
+
     .modal-content {
         width: 100%; /* Use full width on smaller screens */
         max-width: none; /* Remove max-width constraint */
     }
-
-    .left-arrow,
-    .right-arrow {
-        top: 90%; /* Position arrows closer to the slider for accessibility */
-    }
-
-    .nav-menu {
-        display: none;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
 }
