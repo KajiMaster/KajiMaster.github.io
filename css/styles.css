@@ -426,20 +426,30 @@ main {
 ==================== */
 @media (max-width: 768px) {
     .testimonial-container {
-        overflow-x: auto; /* Enable horizontal scroll */
+        display: flex;
+        flex-direction: row;
+        gap: 1em; /* Maintain spacing between cards */
+        justify-content: flex-start;
+        overflow-x: auto; /* Allow horizontal scrolling */
         overflow-y: visible; /* Ensure shadows are visible */
-        padding-bottom: 1rem; /* Add space below for visible shadows */
-        scroll-snap-type: x mandatory; /* Enable snap-to-testimonial */
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling */
+        scroll-snap-type: x mandatory; /* Snap to cards */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+        padding: 1em; /* Add padding to prevent clipping */
         position: relative;
     }
 
     .testimonial {
-        flex: 0 0 90%; /* Ensure cards fit within the viewport */
-        max-width: 90%;
-        margin: 0 auto; /* Center testimonials horizontally */
-        scroll-snap-align: center; /* Snap to center */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ensure shadow is intact */
+        flex: 0 0 90%; /* Each card takes 90% of the viewport width */
+        max-width: 90%; /* Prevent overflow */
+        scroll-snap-align: center; /* Snap cards to the center */
+        margin: 0 auto; /* Center align each card */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ensure shadow visibility */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth scaling */
+    }
+
+    .testimonial:hover {
+        transform: scale(1.05); /* Add scaling effect */
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
     }
 
     #fadingText {
