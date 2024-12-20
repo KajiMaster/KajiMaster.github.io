@@ -92,6 +92,20 @@ body {
     text-align: center; /* Ensure the text stays centered */
 }
 
+/* General Styles for Modal Content */
+.modal-content {
+    position: relative;
+    width: 80%; /* General width */
+    max-width: 900px; /* Limit maximum width */
+    aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+    background-color: black; /* Modal background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevent overflow */
+    margin: auto; /* Center in the container */
+}
+
 /* ====================
    Testimonials Section (Desktop)
 ==================== */
@@ -99,26 +113,29 @@ body {
     .testimonial-container {
         display: flex;
         gap: 1.5em; /* Spacing between cards */
-        justify-content: flex-start;
+        justify-content: space-between; /* Align testimonials with spacing */
+        padding: 1em; /* Add padding around testimonials for shadows */
         overflow: visible; /* Ensure shadows are visible */
-        padding: 1em; /* Add padding for spacing */
     }
 
     .testimonial {
-        flex: 0 0 calc(33.33% - 1em); /* Three testimonials per row */
-        max-width: calc(33.33% - 1em);
+        flex: 0 0 calc(33.33% - 1em); /* Show three testimonials per row */
+        max-width: calc(33.33% - 1em); /* Prevent overflow */
         background-color: #E5BA21;
         border-radius: 12px;
-        text-align: center;
         padding: 1em;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        text-align: center;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .testimonial-photo {
-        width: 80px; /* Resize student photo */
+        width: 80px; /* Resize student photo for desktop */
         height: 80px; /* Maintain aspect ratio */
+        margin: 0 auto;
+        border: 3px solid #28A745; /* Optional border */
     }
+
 
     .testimonial:hover {
         transform: scale(1.05);
@@ -126,14 +143,12 @@ body {
     }
 
     .testimonial.open {
-        flex: 0 0 calc(50% - 1em); /* Slightly larger for Tier 2 */
+        flex: 0 0 calc(50% - 1em); /* Larger size for open state */
         max-width: calc(50% - 1em);
         padding: 1.5em; /* Adjust padding for shadow visibility */
-        margin: 1.5em auto; /* Add space for shadows */
-        transform: scale(1.1); /* Slightly larger for open state */
-        box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.4); /* More pronounced shadow */
+        margin: 1.5em auto; /* Center open card */
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
     }
-
     .slider-arrow {
         position: absolute;
         top: 50%;
@@ -158,6 +173,11 @@ body {
     .right-arrow {
         right: 0.5em;
     }
+
+    .modal-content {
+        padding: 1em; /* Add padding for larger screens */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+    }
 }
 
 /* ====================
@@ -169,26 +189,29 @@ body {
         flex-direction: row;
         gap: 1em; /* Maintain spacing between cards */
         justify-content: flex-start;
-        overflow: visible;
         overflow-x: auto; /* Allow horizontal scrolling */
-        overflow-y: visible; /* Ensure shadows and scaling visibility */
-        scroll-snap-type: x mandatory; /* Snap cards for smooth scrolling */
-        -webkit-overflow-scrolling: touch; /* Enable smooth scrolling */
-        padding: 2em 1em; /* Add vertical and horizontal padding */
-        position: relative;
+        scroll-snap-type: x mandatory; /* Enable snapping */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling */
+        padding: 2em 1em; /* Add padding for shadows */
     }
 
     .testimonial {
-        flex: 0 0 90%; /* Each card takes 90% of the viewport width */
-        max-width: 90%; /* Prevent cards from overflowing */
-        scroll-snap-align: center; /* Snap cards to the center */
-        margin: 0 auto; /* Center align each card */
+        flex: 0 0 90%; /* Each card takes 90% of viewport width */
+        max-width: 90%;
+        scroll-snap-align: center; /* Snap to center */
         background-color: #E5BA21;
         border-radius: 12px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
-        text-align: center;
         padding: 1em;
-        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth scaling */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimonial-photo {
+        width: 100px; /* Mobile-specific size */
+        height: 100px; /* Maintain aspect ratio */
+        margin: 0 auto;
+        border: 3px solid #28A745;
     }
 
     .testimonial:hover {
@@ -196,14 +219,17 @@ body {
         box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4); /* Shadow on hover */
     }
 
-    .testimonial.open {
-        padding: 1.5em; /* Add padding to allow space for shadows */
-        margin: 1em auto; /* Center-align and add margin for shadow space */
-    }
-
     .testimonial.open:hover {
         transform: scale(1.15); /* Slightly larger for open state */
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); /* Larger shadow for open hover */
+    }
+
+    .testimonial.open {
+        flex: 0 0 95%; /* Slightly larger size for open state */
+        max-width: 95%;
+        margin: 1em auto; /* Center open card */
+        padding: 1.5em; /* Adjust padding for shadow visibility */
+        box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
     }
 
     .left-arrow,

@@ -130,7 +130,9 @@ function addTestimonialEvents() {
             defaultPhoto.classList.add("hidden");
             studentName.classList.add("hidden"); // Hide the first-tier name
 
-            // Show second tier
+            // Show second tier with dynamic padding/margin adjustment
+            parentBox.style.padding = "1.5em"; // Adjust padding dynamically
+            parentBox.style.margin = "1.5em 0"; // Add margin for shadows
             details.classList.remove("hidden");
         });
     });
@@ -150,7 +152,9 @@ function addTestimonialEvents() {
             defaultPhoto.classList.remove("hidden");
             studentName.classList.remove("hidden"); // Show the first-tier name
 
-            // Hide the second tier
+            // Reset padding/margin to original values
+            parentBox.style.padding = "1em";
+            parentBox.style.margin = "0.5em 0";
             details.classList.add("hidden");
         });
     });
@@ -207,6 +211,17 @@ function initTestimonialSlider() {
         sliderContainer.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
     }
 
+    function updateArrows() {
+        const visibleCount = getVisibleCount();
+        if (testimonials.length <= visibleCount) {
+            leftArrow.style.display = "none";
+            rightArrow.style.display = "none";
+        } else {
+            leftArrow.style.display = "block";
+            rightArrow.style.display = "block";
+        }
+    }
+
     function slide(direction) {
         const totalTestimonials = testimonials.length;
         const visibleCount = getVisibleCount();
@@ -243,10 +258,12 @@ function initTestimonialSlider() {
     window.addEventListener("resize", () => {
         currentIndex = Math.min(currentIndex, testimonials.length - getVisibleCount());
         updateSliderPosition();
+        updateArrows();
     });
 
-    // Initialize slider position
+    // Initialize slider
     updateSliderPosition();
+    updateArrows();
 }
 
 
