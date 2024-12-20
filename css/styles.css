@@ -247,23 +247,27 @@ main {
 .testimonial-container {
     display: flex;
     gap: 1.5em;
-    justify-content: space-between;
+    justify-content: flex-start; /* Adjust for scrolling */
     align-items: flex-start;
-    overflow: visible; /* Ensure zooming content isn't clipped */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Prevent vertical overflow */
+    scroll-snap-type: x mandatory; /* Enable snap scrolling */
 }
 
 
 .testimonial {
-    flex: 0 0 30%;
+    flex: 0 0 100%; /* Each card takes full width */
+    max-width: 100%; /* Prevent overflow */
+    scroll-snap-align: start; /* Align each card for snapping */
     background-color: #E5BA21;
     border-radius: 12px;
     text-align: center;
     padding: 1em;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease-in-out;
-    margin: 0.5em; /* Add spacing to prevent cutting off */
+    margin: 0.5em;
     position: relative;
-    z-index: 1; /* Bring the card and its shadow above other elements */
+    z-index: 1;
 }
 
 
@@ -426,6 +430,19 @@ main {
    Responsive Behavior
 ==================== */
 @media (max-width: 768px) {
+    .testimonial-container {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5em; /* Reduce gap for smaller screens */
+        justify-content: flex-start;
+        overflow-x: auto;
+    }
+
+    .testimonial {
+        flex: 0 0 90%; /* Slight margin for better visibility */
+        max-width: 90%;
+    }
+
     #fadingText {
         font-size: 1.5rem; /* Slightly smaller size for mobile */
     }
@@ -442,7 +459,4 @@ main {
         display: flex;
     }
 
-    .testimonial {
-        flex: 0 0 100%;
-    }
 }

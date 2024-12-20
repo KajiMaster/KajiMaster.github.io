@@ -196,15 +196,41 @@ function initTestimonialSlider() {
     const rightArrow = document.querySelector(".right-arrow");
 
     let currentIndex = 0;
-    const visibleCount = 3;
 
     function slide(direction) {
         const totalTestimonials = sliderContainer.childElementCount;
-        if (direction === "left") currentIndex = Math.max(currentIndex - 1, 0);
-        else if (direction === "right") currentIndex = Math.min(currentIndex + 1, totalTestimonials - visibleCount);
+
+        // Determine visible count based on screen size
+        const visibleCount = window.innerWidth < 768 ? 1 : 3;
+
+        if (direction === "left") {
+            currentIndex = Math.max(currentIndex - 1, 0);
+        } else if (direction === "right") {
+            currentIndex = Math.min(currentIndex + 1, totalTestimonials - visibleCount);
+        }
+
         sliderContainer.style.transform = `translateX(-${currentIndex * (100 / visibleCount)}%)`;
     }
 
     leftArrow.addEventListener("click", () => slide("left"));
     rightArrow.addEventListener("click", () => slide("right"));
+
+    // Add touch swipe support for mobile
+    let startX = 0;
+
+    sliderContainer.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+    });
+
+    sliderContainer.addEventListener("touchend", (e) => {
+        const endX = e.changedTouches[0].clientX;
+        const deltaX = startX - endX;
+
+        if (deltaX > 50) {
+            slide("right"); // Swipe left to go right
+        } else if (deltaX < -50) {
+            slide("left"); // Swipe right to go left
+        }
+    });
 }
+
