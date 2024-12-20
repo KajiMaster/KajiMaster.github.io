@@ -426,8 +426,56 @@ main {
    Responsive Behavior
 ==================== */
 @media (max-width: 768px) {
+    .testimonial-container {
+        display: flex;
+        flex-direction: row;
+        gap: 1em; /* Maintain spacing between cards */
+        justify-content: flex-start; /* Align items to the start */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        overflow-y: visible; /* Ensure shadows are not clipped */
+        scroll-snap-type: x mandatory; /* Smooth snap scrolling */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling for touch devices */
+        padding: 2em 1em; /* Adjust padding for better appearance */
+    }
+
+    .testimonial {
+        flex: 0 0 100%; /* Each card takes full width */
+        max-width: 100%; /* Prevent cards from overflowing */
+        scroll-snap-align: center; /* Center each card in the viewport */
+        margin: 0 auto; /* Center align each card */
+        background-color: #E5BA21;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Maintain subtle shadow */
+        text-align: center;
+        padding: 1em;
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    }
+
+    .testimonial:hover {
+        transform: scale(1.05); /* Slight hover effect */
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+    }
+
+    .testimonial.open:hover {
+        transform: scale(1.15); /* Larger scale for expanded state */
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); /* Larger shadow for expanded hover */
+    }
+
+    .slider-arrow {
+        display: none; /* Hide arrows on mobile for simplicity */
+    }
+
     #fadingText {
-        font-size: 1.5rem; /* Slightly smaller size for mobile */
+        font-size: 0.9rem; /* Slightly smaller size for mobile */
+    }
+
+    .cta-button {
+        font-size: 0.8rem; /* Smaller font size for mobile */
+        white-space: normal; /* Allow text wrapping */
+        line-height: 1.2; /* Adjust line spacing for readability */
+        width: auto; /* Dynamically adjust width */
+        max-width: 25%; /* Prevent it from getting too wide */
+        padding: 0.4em 0.8em; /* Compact padding for smaller screens */
     }
     
     .modal-content {
@@ -442,7 +490,5 @@ main {
         display: flex;
     }
 
-    .testimonial {
-        flex: 0 0 100%;
-    }
+
 }
