@@ -433,14 +433,29 @@ main {
     .testimonial-container {
         display: flex;
         flex-direction: row;
-        gap: 0.5em; /* Reduce gap for smaller screens */
-        justify-content: flex-start;
-        overflow-x: auto;
+        justify-content: center; /* Center align testimonials */
+        overflow-x: auto; /* Enable smooth horizontal scrolling */
+        overflow-y: hidden; /* Prevent vertical overflow */
+        gap: 1em; /* Maintain spacing between items */
+        scroll-snap-type: x mandatory; /* Keep snap functionality */
+        padding: 1em; /* Add padding for better appearance */
     }
 
     .testimonial {
-        flex: 0 0 90%; /* Slight margin for better visibility */
-        max-width: 90%;
+        flex: 0 0 100%; /* Ensure one testimonial per view */
+        max-width: 100%; /* Match container width */
+        scroll-snap-align: center; /* Snap to center for better UX */
+        background-color: #E5BA21; /* Retain desktop background */
+        border-radius: 12px; /* Keep rounded corners */
+        text-align: center;
+        padding: 1em; /* Add padding for consistency */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Desktop shadow style */
+        margin: 0 auto; /* Center align testimonials */
+    }
+
+    .testimonial:hover {
+        transform: none; /* Disable hover effects on mobile */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Retain default shadow */
     }
 
     #fadingText {
