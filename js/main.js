@@ -192,16 +192,18 @@ function openVideoModal(videoUrl) {
 =========================== */
 function initTestimonialSlider() {
     const sliderContainer = document.querySelector(".testimonial-container");
+    const testimonials = document.querySelectorAll(".testimonial");
     const leftArrow = document.querySelector(".left-arrow");
     const rightArrow = document.querySelector(".right-arrow");
 
     let currentIndex = 0;
 
-    function slide(direction) {
-        const totalTestimonials = sliderContainer.childElementCount;
+    // Adjust visible count dynamically
+    const getVisibleCount = () => (window.innerWidth < 768 ? 1 : 3);
 
-        // Determine visible count based on screen size
-        const visibleCount = window.innerWidth < 768 ? 1 : 3;
+    function slide(direction) {
+        const totalTestimonials = testimonials.length;
+        const visibleCount = getVisibleCount();
 
         if (direction === "left") {
             currentIndex = Math.max(currentIndex - 1, 0);
@@ -209,7 +211,8 @@ function initTestimonialSlider() {
             currentIndex = Math.min(currentIndex + 1, totalTestimonials - visibleCount);
         }
 
-        sliderContainer.style.transform = `translateX(-${currentIndex * (100 / visibleCount)}%)`;
+        const scrollWidth = sliderContainer.clientWidth / visibleCount;
+        sliderContainer.style.transform = `translateX(-${currentIndex * scrollWidth}px)`;
     }
 
     leftArrow.addEventListener("click", () => slide("left"));
@@ -232,5 +235,12 @@ function initTestimonialSlider() {
             slide("left"); // Swipe right to go left
         }
     });
+
+    // Adjust slider on window resize
+    window.addEventListener("resize", () => {
+        currentIndex = 0; // Reset position on resize
+        sliderContainer.style.transform = "translateX(0)";
+    });
 }
+
 

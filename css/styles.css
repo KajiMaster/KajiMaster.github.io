@@ -247,27 +247,25 @@ main {
 .testimonial-container {
     display: flex;
     gap: 1.5em;
-    justify-content: flex-start; /* Adjust for scrolling */
+    justify-content: center;
     align-items: flex-start;
-    overflow-x: auto; /* Enable horizontal scrolling */
-    overflow-y: hidden; /* Prevent vertical overflow */
-    scroll-snap-type: x mandatory; /* Enable snap scrolling */
+    overflow-x: scroll; /* Ensure horizontal scroll on small screens */
+    scroll-snap-type: x mandatory; /* Snap to cards for smooth scrolling */
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on mobile */
 }
 
 
 .testimonial {
-    flex: 0 0 100%; /* Each card takes full width */
-    max-width: 100%; /* Prevent overflow */
-    scroll-snap-align: start; /* Align each card for snapping */
+    flex: 0 0 100%; /* Ensure each card takes the full width on mobile */
+    scroll-snap-align: center; /* Snap the card to the center */
     background-color: #E5BA21;
     border-radius: 12px;
     text-align: center;
     padding: 1em;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease-in-out;
-    margin: 0.5em;
     position: relative;
-    z-index: 1;
+    margin: 0 auto; /* Center align each card */
 }
 
 
