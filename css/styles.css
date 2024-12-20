@@ -430,6 +430,7 @@ main {
         flex-direction: row;
         gap: 1em; /* Maintain spacing between cards */
         justify-content: flex-start;
+        overflow: visible;
         overflow-x: auto; /* Allow horizontal scrolling */
         overflow-y: visible; /* Ensure shadows and scaling visibility */
         scroll-snap-type: x mandatory; /* Snap cards for smooth scrolling */
@@ -452,8 +453,13 @@ main {
     }
 
     .testimonial:hover {
-        transform: scale(1.05); /* Add scaling effect */
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+        transform: scale(1.05); /* Slight hover effect */
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4); /* Shadow on hover */
+    }
+    
+    .testimonial.open:hover {
+        transform: scale(1.15); /* Slightly larger for open state */
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); /* Larger shadow for open hover */
     }
 
     #fadingText {
