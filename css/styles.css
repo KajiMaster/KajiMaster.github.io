@@ -431,14 +431,17 @@ main {
     .testimonial-container {
         display: flex;
         flex-direction: row;
-        gap: 0.5em; /* Reduce gap for smaller screens */
+        gap: 0.5em; /* Maintain gap between cards */
         justify-content: flex-start;
-        overflow-x: auto;
+        overflow-x: auto; /* Ensure horizontal scroll */
+        scroll-snap-type: x mandatory; /* Enable snapping */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling for mobile */
     }
 
     .testimonial {
-        flex: 0 0 90%; /* Slight margin for better visibility */
-        max-width: 90%;
+        flex: 0 0 100%; /* Ensure each card takes full width on mobile */
+        max-width: 100%; /* Prevent overflow */
+        scroll-snap-align: center; /* Snap cards to the center */
     }
 
     #fadingText {
@@ -449,6 +452,12 @@ main {
         width: 100%; /* Use full width on smaller screens */
         max-width: none; /* Remove max-width constraint */
     }
+
+    .left-arrow,
+    .right-arrow {
+        top: 90%; /* Position arrows closer to the slider for accessibility */
+    }
+    
     .nav-menu {
         display: none;
     }

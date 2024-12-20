@@ -198,7 +198,7 @@ function initTestimonialSlider() {
 
     let currentIndex = 0;
 
-    // Adjust visible count dynamically
+    // Function to get visible count based on screen size
     const getVisibleCount = () => (window.innerWidth < 768 ? 1 : 3);
 
     function slide(direction) {
@@ -215,6 +215,7 @@ function initTestimonialSlider() {
         sliderContainer.style.transform = `translateX(-${currentIndex * scrollWidth}px)`;
     }
 
+    // Add event listeners for arrows
     leftArrow.addEventListener("click", () => slide("left"));
     rightArrow.addEventListener("click", () => slide("right"));
 
@@ -242,5 +243,6 @@ function initTestimonialSlider() {
         sliderContainer.style.transform = "translateX(0)";
     });
 }
+
 
 
