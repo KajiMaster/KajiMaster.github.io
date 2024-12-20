@@ -198,8 +198,14 @@ function initTestimonialSlider() {
 
     let currentIndex = 0;
 
-    // Function to get visible count based on screen size
-    const getVisibleCount = () => (window.innerWidth < 768 ? 1 : 3);
+    // Function to calculate visible count and card width
+    const getVisibleCount = () => (window.innerWidth < 768 ? 1 : 3); // 1 on mobile, 3 on desktop
+    const getCardWidth = () => sliderContainer.clientWidth / getVisibleCount();
+
+    function updateSliderPosition() {
+        const cardWidth = getCardWidth();
+        sliderContainer.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    }
 
     function slide(direction) {
         const totalTestimonials = testimonials.length;
@@ -210,38 +216,37 @@ function initTestimonialSlider() {
         } else if (direction === "right") {
             currentIndex = Math.min(currentIndex + 1, totalTestimonials - visibleCount);
         }
-
-        const scrollWidth = sliderContainer.clientWidth / visibleCount;
-        sliderContainer.style.transform = `translateX(-${currentIndex * scrollWidth}px)`;
+        updateSliderPosition();
     }
 
-    // Add event listeners for arrows
+    // Arrow click events
     leftArrow.addEventListener("click", () => slide("left"));
     rightArrow.addEventListener("click", () => slide("right"));
 
-    // Add touch swipe support for mobile
+    // Touch swipe support
     let startX = 0;
-
     sliderContainer.addEventListener("touchstart", (e) => {
         startX = e.touches[0].clientX;
     });
-
     sliderContainer.addEventListener("touchend", (e) => {
         const endX = e.changedTouches[0].clientX;
         const deltaX = startX - endX;
 
         if (deltaX > 50) {
-            slide("right"); // Swipe left to go right
+            slide("right");
         } else if (deltaX < -50) {
-            slide("left"); // Swipe right to go left
+            slide("left");
         }
     });
 
     // Adjust slider on window resize
     window.addEventListener("resize", () => {
-        currentIndex = 0; // Reset position on resize
-        sliderContainer.style.transform = "translateX(0)";
+        currentIndex = Math.min(currentIndex, testimonials.length - getVisibleCount());
+        updateSliderPosition();
     });
+
+    // Initialize slider position
+    updateSliderPosition();
 }
 
 

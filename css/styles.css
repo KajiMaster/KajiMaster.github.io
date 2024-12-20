@@ -246,26 +246,23 @@ main {
 
 .testimonial-container {
     display: flex;
-    gap: 1.5em;
-    justify-content: center;
+    gap: 1.5em; /* Spacing between cards */
+    justify-content: flex-start;
     align-items: flex-start;
-    overflow-x: scroll; /* Ensure horizontal scroll on small screens */
-    scroll-snap-type: x mandatory; /* Snap to cards for smooth scrolling */
-    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on mobile */
+    overflow: hidden; /* Prevent white-space or overflow */
+    position: relative; /* Ensure proper alignment */
 }
 
-
 .testimonial {
-    flex: 0 0 100%; /* Ensure each card takes the full width on mobile */
-    scroll-snap-align: center; /* Snap the card to the center */
+    flex: 0 0 auto; /* Ensure testimonials align horizontally */
+    width: 100%; /* Default width, adjusted in JS for desktop/mobile */
+    max-width: 100%; /* Prevent overflow */
     background-color: #E5BA21;
     border-radius: 12px;
     text-align: center;
     padding: 1em;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease-in-out;
-    position: relative;
-    margin: 0 auto; /* Center align each card */
+    transition: transform 0.3s ease-in-out;
 }
 
 
@@ -457,7 +454,7 @@ main {
     .right-arrow {
         top: 90%; /* Position arrows closer to the slider for accessibility */
     }
-    
+
     .nav-menu {
         display: none;
     }
