@@ -171,17 +171,22 @@ main {
     flex-wrap: wrap;
     margin: 2em auto;
     width: 90%;
+    gap: 15em; /* Space between boxes */
+
 }
 
 .left_article, .right_article {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adds depth */    
     flex: 1;
     padding: 2em;
+    ZZZZ
 }
 
 .left_article {
     background-color: #E5BA21;
     border-bottom-left-radius: 80px;
     text-align: center;
+    background: linear-gradient(135deg, #E5BA21, #FFD700);
 }
 
 .left_article img {
@@ -204,10 +209,17 @@ main {
     background-color: #C74325;
 }
 
-.right_article img {
-    width: 100%;
-    border-bottom-right-radius: 80px;
+.right_article {
+    flex: 0 0 20%;
+    margin-top: 4em; /* Push it down */
+    margin-bottom: 4em; /* Adjust as needed */
+    background-color: #48A4DB; /* Match the left_article color */
+    border-bottom-right-radius: 80px; /* Match the curved corner */
+    text-align: center; /* Center-align text and content */
+    padding: 2em; /* Ensure consistent padding */
+    background: linear-gradient(135deg, #48A4DB, #62b8eb); /* Peach gradient */
 }
+
 
 /* ====================
    Testimonials Section
